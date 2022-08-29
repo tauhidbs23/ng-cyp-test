@@ -1,3 +1,21 @@
-<p>Users List</p>
-<p>Here, we are show all users list</p>
-
+<h3>Users List</h3>
+<button>Add new</button>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let user of userList">
+    <td>{{user.name}}</td>
+    <td>{{user.username}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.phone}}</td>
+    <td>
+      <button>Edit</button>
+      <button>Delete</button>
+    </td>
+  </tr>
+</table>
