@@ -1,1 +1,19 @@
-<p>user add edit form works!</p>
+
+<form [formGroup]="form">
+  <label for="name">name:</label><br>
+  <input type="text" id="name" formControlName="name" value="John"><br>
+
+  <label for="username">username:</label><br>
+  <input type="text" id="username" formControlName="username" value="Doe"><br><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email" formControlName="email" value="Doe"><br><br>
+
+  <label for="phone">phone:</label><br>
+  <input type="text" id="phone" formControlName="phone" value="Doe"><br><br>
+
+  <label for="website">website:</label><br>
+  <input type="text" id="website" formControlName="website" value="Doe"><br><br>
+
+  <button (click)="addNewUser()">Add New Users</button>
+</form>
