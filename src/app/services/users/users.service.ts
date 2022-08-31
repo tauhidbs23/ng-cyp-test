@@ -6,13 +6,17 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class UsersService {
-  userUrl= 'https://jsonplaceholder.typicode.com/users';
+  userUrl = 'https://jsonplaceholder.typicode.com/users';
 
   constructor(private http: HttpClient) {
   }
 
   getUsers(): Observable<any[]> {
     return this.http.get<any[]>(this.userUrl);
+  }
+
+  getUsersById(id: string): Observable<any[]> {
+    return this.http.get<any[]>(this.userUrl + '/' + id);
   }
 
   addUsers(): Observable<any[]> {
@@ -23,7 +27,7 @@ export class UsersService {
     return this.http.get<any[]>(this.userUrl);
   }
 
-  deleteUsers(): Observable<any[]> {
-    return this.http.get<any[]>(this.userUrl);
+  deleteUsers(id: string): Observable<any[]> {
+    return this.http.delete<any[]>(this.userUrl + '/' + id);
   }
 }

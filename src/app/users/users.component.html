@@ -1,5 +1,5 @@
 <h3>Users List</h3>
-<button>Add new</button>
+<button nz-button nzType="primary" routerLink="/users/add">Add New</button>
 <table>
   <tr>
     <th>Name</th>
@@ -14,8 +14,9 @@
     <td>{{user.email}}</td>
     <td>{{user.phone}}</td>
     <td>
-      <button>Edit</button>
-      <button>Delete</button>
+      <button routerLink="/users/details/{{user.id}}">Details</button>
+      <button routerLink="/users/edit/{{user.id}}">Edit</button>
+      <button (click)="deleteUser(user.id)">Delete</button>
     </td>
   </tr>
 </table>
