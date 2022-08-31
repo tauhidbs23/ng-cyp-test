@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {UsersService} from "../services/users/users.service";
-import {IUserDetails} from "../users/users.config";
+import {IUser} from "../users/users.config";
 
 @Component({
   selector: 'app-user-details',
@@ -22,7 +22,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   getSingleUser(id: string): void {
-    this.usersService.getUsersById(id).subscribe(res => {
+    this.usersService.getUserById(id).subscribe(res => {
       this.userDetails = res;
     });
   }
