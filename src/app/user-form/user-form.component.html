@@ -15,5 +15,6 @@
   <label for="website">website:</label><br>
   <input type="text" id="website" formControlName="website" value="Doe"><br><br>
 
-  <button (click)="addNewUser()">Add New Users</button>
+  <button (click)="addNewUser()" *ngIf="!userDetails">Add New Users</button>
+  <button (click)="updateUser()" *ngIf="userDetails">Update Users Info</button>
 </form>
