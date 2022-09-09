@@ -1,20 +1,22 @@
+<h1 *ngIf="!userDetails" data-cy="addNewUser">Add a new users</h1>
+<h1 *ngIf="userDetails" data-cy="updateUser">modify user information</h1>
 
 <form [formGroup]="form">
   <label for="name">name:</label><br>
-  <input type="text" id="name" formControlName="name" value="John"><br>
+  <input data-cy="nameInput" type="text" id="name" formControlName="name" value="John"><br>
 
   <label for="username">username:</label><br>
-  <input type="text" id="username" formControlName="username" value="Doe"><br><br>
+  <input data-cy="usernameInput" type="text" id="username" formControlName="username" value="Doe"><br><br>
 
   <label for="email">email:</label><br>
-  <input type="text" id="email" formControlName="email" value="Doe"><br><br>
+  <input data-cy="emailInput" type="text" id="email" formControlName="email" value="Doe"><br><br>
 
   <label for="phone">phone:</label><br>
-  <input type="text" id="phone" formControlName="phone" value="Doe"><br><br>
+    <input data-cy="phoneInput" type="text" id="phone" formControlName="phone" value="Doe"><br><br>
 
   <label for="website">website:</label><br>
-  <input type="text" id="website" formControlName="website" value="Doe"><br><br>
+  <input data-cy="websiteInput" type="text" id="website" formControlName="website" value="Doe"><br><br>
 
-  <button (click)="addNewUser()" *ngIf="!userDetails">Add New Users</button>
-  <button (click)="updateUser()" *ngIf="userDetails">Update Users Info</button>
+  <button data-cy="submitNewUserForm" (click)="addNewUser()" *ngIf="!userDetails">Add New Users</button>
+  <button data-cy="updateUserForm" (click)="updateUser()" *ngIf="userDetails">Update Users Info</button>
 </form>

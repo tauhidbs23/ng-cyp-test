@@ -41,3 +41,14 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+// @ts-ignore
+Cypress.Commands.add('getBySel', selector => {
+  return cy.get(`[data-cy=${selector}]`)
+})
+
+// @ts-ignore
+Cypress.Commands.add('getBySelLike', (selector, ...args) => {
+  return cy.get(`[data-cy=${selector}]`, ...args)
+})
+
