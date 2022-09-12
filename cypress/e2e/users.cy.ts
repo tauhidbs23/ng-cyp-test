@@ -1,6 +1,13 @@
+import {fakeUser} from '../support/fake-data';
+import {apiUrl} from '../support/utils/utils'
+
 describe('Users Page:', () => {
   it('should visit User page', () => {
     cy.visit('/users');
+
+    cy.intercept({method: 'GET', url: `${apiUrl}/users`}).as('getUsers')
+
+    cy.wait('@getUsers').its('response.statusCode').should('equal', 200)
   });
 
   it('should display the logo', () => {
@@ -20,19 +27,22 @@ describe('Users Page:', () => {
   });
 
   it('type user information', () => {
-    cy.getBySel('nameInput')
-      .type('John')
-      // .should('have.attr', 'data-validation', 'required')
-      // .and('have.class', 'active')
-      // .and('have.value', 'johnny')
-    cy.getBySel('usernameInput').type('johnDow')
-    cy.getBySel('emailInput').type('john@yopmail.com')
-    cy.getBySel('phoneInput').type('01749913179')
-    cy.getBySel('websiteInput').type('www.tauhid.com')
+    cy.getBySel('nameInput').type(fakeUser.name)
+    // .should('have.attr', 'data-validation', 'required')
+    // .and('have.class', 'active')
+    // .and('have.value', 'johnny')
+    cy.getBySel('usernameInput').type(fakeUser.userName)
+    cy.getBySel('emailInput').type(fakeUser.email)
+    cy.getBySel('phoneInput').type(fakeUser.phoneNumber)
+    cy.getBySel('websiteInput').type(fakeUser.website)
   });
 
   it('should submit add new form ', () => {
     cy.get('[data-cy=submitNewUserForm]').click()
+
+    cy.intercept({method: 'POST', url: `${apiUrl}/users`}).as('postUser')
+
+    cy.wait('@postUser').its('response.statusCode').should('equal', 201)
   });
 
   it('new Style :: should show list page', () => {
