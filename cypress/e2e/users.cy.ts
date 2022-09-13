@@ -35,6 +35,9 @@ describe('Users Page:', () => {
     cy.getBySel('emailInput').type(fakeUser.email)
     cy.getBySel('phoneInput').type(fakeUser.phoneNumber)
     cy.getBySel('websiteInput').type(fakeUser.website)
+
+    cy.getBySel('chooseCar').select(3)
+    // cy.getBySel('chooseCar3').click()
   });
 
   it('should submit add new form ', () => {

@@ -17,6 +17,19 @@
   <label for="website">website:</label><br>
   <input data-cy="websiteInput" type="text" id="website" formControlName="website" value="Doe"><br><br>
 
+
+  <label for="cars" style="padding-right: 10px">Choose a car:</label>
+
+  <select id="cars" data-cy="chooseCar">
+    <option data-cy="chooseCar1" value="volvo">Volvo</option>
+    <option data-cy="chooseCar2" value="saab" selected>Saab</option>
+    <option data-cy="chooseCar3" value="opel">Opel</option>
+    <option data-cy="chooseCar4" value="audi">Audi</option>
+  </select>
+
+  <br/>
+  <br/>
+
   <button data-cy="submitNewUserForm" (click)="addNewUser()" *ngIf="!userDetails">Add New Users</button>
   <button data-cy="updateUserForm" (click)="updateUser()" *ngIf="userDetails">Update Users Info</button>
 </form>
