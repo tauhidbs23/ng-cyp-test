@@ -38,6 +38,8 @@ describe('Users Page:', () => {
 
     cy.getBySel('chooseCar').select(3)
     // cy.getBySel('chooseCar3').click()
+
+    cy.getBySel('chooseImage').attachFile('sample.png')
   });
 
   it('should submit add new form ', () => {

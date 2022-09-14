@@ -27,8 +27,21 @@
     <option data-cy="chooseCar4" value="audi">Audi</option>
   </select>
 
+
+
   <br/>
   <br/>
+
+  <label for="avatar">Choose a profile picture:</label>
+
+  <input data-cy="chooseImage" type="file"
+         id="avatar" name="avatar"
+         accept="image/png, image/jpeg">
+
+
+  <br/>
+  <br/>
+
 
   <button data-cy="submitNewUserForm" (click)="addNewUser()" *ngIf="!userDetails">Add New Users</button>
   <button data-cy="updateUserForm" (click)="updateUser()" *ngIf="userDetails">Update Users Info</button>
